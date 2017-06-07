@@ -14,6 +14,12 @@ The Following Pages have custom templates added
 - Signup
 - Password reset From Key
 
+The Following Social Logins are added
+
+- Google
+- Facebook
+- Github
+
 ===============================
 Technology Stack
 ===============================
@@ -57,3 +63,7 @@ Now you need to run the Django development server:
 
 You should then be able to open your browser on http://127.0.0.1:8000 and
 see a page with links to sign in or sign up.
+
+Before using Social Logins Please visit http://127.0.0.1:8000/admin, after logging
+in with your superuser, edit the table Social Apps for the Id/Secret of
+Google/Facebook/Github and replace them with your own.
