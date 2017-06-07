@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block content %}
+<div class="container">
+<br><br><br>
+<div class="row outline">
+  <div class="col-sm-12 center-align padded">
+
+    <h2>Create New Account</h2>
+    <hr>
+  </div>
+  <div class="col-xs-12 col-md-4 verticalLine">
+    <div class="row">
+      <h4>You can also </h4>
+    </div>
+    <br>
+    <div class="row center-align opac">
+      <div style="display: inline-block;">
+        <a class="btn btn-block btn-social btn-facebook center-align" href="/accounts/facebook/login/">
+          <span class="fa fa-facebook"></span> Sign in with Facebook
+        </a>
+
+
+
+        <a class="btn btn-block btn-social btn-google center-align" href="/accounts/google/login/">
+          <span class="fa fa-google"></span> Sign in with Google
+        </a>
+
+
+      <a class="btn btn-block btn-social btn-github center-align" href="/accounts/github/login/">
+        <span class="fa fa-github"></span> Sign in with Github
+      </a>
+      </div>
+      <br><br><br><br>
+      <div style="display: inline-block;">
+          Already a member? <br>
+          <a href="{% url 'account_login' %}">Sing In</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12 col-md-8">
+    <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+      {% csrf_token %}
+      {{ form.non_field_errors }}
+          <input type="text" name="username" placeholder="Username" autofocus="autofocus" minlength="1" class="form-control" maxlength="30" required="" id="id_username">
+          {{ form.username.errors }}
+          <br>
+          <input type="password" name="password1" class="form-control" placeholder="Password" required="" id="id_password1">
+          {{ form.password1.errors }}
+          <br>
+          <input type="password" name="password2" class="form-control" placeholder="Confirm Password" required="" id="id_password2">
+          {{ form.password2.errors }}
+          <br>
+          <input id="id_email" name="email" class="form-control" type="email" placeholder="email@address.com"> {{ form.email.errors }}
+          <br>
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+      <br>
+      <button type="submit" class="btn btn-success">Create My Account &raquo;</button>
+    </form>
+
+
+  </div>
+</div>
+</div>
+{% endblock %}
